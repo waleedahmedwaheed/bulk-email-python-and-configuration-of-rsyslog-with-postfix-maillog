@@ -53,52 +53,52 @@ This project contains a Python script for sending emails using SMTP. It supports
 
 Create a file `/etc/rsyslog.d/50-mysql.conf` with the following content:
 
-	```plaintext
-	action(type="ommysql" server="127.0.0.1" serverport="3306"
-       db="Syslog" uid="your_db_username" pwd="your_db_password")
-	```
+```plaintext
+    action(type="ommysql" server="127.0.0.1" serverport="3306"
+    db="Syslog" uid="your_db_username" pwd="your_db_password")
+```
 	
 2. Database Schema
 
 Create a MySQL database and table to store the logs:
 
-	```plaintext
-	CREATE DATABASE Syslog;
-	USE Syslog;
-	CREATE TABLE SystemEvents
-	(
-		ID int unsigned not null auto_increment primary key,
-		CustomerID bigint,
-		ReceivedAt datetime NULL,
-		DeviceReportedTime datetime NULL,
-		Facility smallint NULL,
-		Priority smallint NULL,
-		FromHost varchar(60) NULL,
-		Message text,
-		NTSeverity int NULL,
-		Importance int NULL,
-		EventSource varchar(60),
-		EventUser varchar(60) NULL,
-		EventCategory int NULL,
-		EventID int NULL,
-		EventBinaryData text NULL,
-		MaxAvailable int NULL,
-		CurrUsage int NULL,
-		MinUsage int NULL,
-		MaxUsage int NULL,
-		InfoUnitID int NULL,
-		SysLogTag varchar(60),
-		EventLogType varchar(60),
-		GenericFileName VarChar(60),
-		SystemID int NULL
-	);
+```plaintext
+CREATE DATABASE Syslog;
+USE Syslog;
+CREATE TABLE SystemEvents
+(
+	ID int unsigned not null auto_increment primary key,
+	CustomerID bigint,
+	ReceivedAt datetime NULL,
+	DeviceReportedTime datetime NULL,
+	Facility smallint NULL,
+	Priority smallint NULL,
+	FromHost varchar(60) NULL,
+	Message text,
+	NTSeverity int NULL,
+	Importance int NULL,
+	EventSource varchar(60),
+	EventUser varchar(60) NULL,
+	EventCategory int NULL,
+	EventID int NULL,
+	EventBinaryData text NULL,
+	MaxAvailable int NULL,
+	CurrUsage int NULL,
+	MinUsage int NULL,
+	MaxUsage int NULL,
+	InfoUnitID int NULL,
+	SysLogTag varchar(60),
+	EventLogType varchar(60),
+	GenericFileName VarChar(60),
+	SystemID int NULL
+);
 	
-	```
+```
 	
 3. Restart rsyslog
 
 After configuring `rsyslog`, restart it to apply changes:
 
-	```bash
-	sudo systemctl restart rsyslog
-	```
+```bash
+sudo systemctl restart rsyslog
+```
