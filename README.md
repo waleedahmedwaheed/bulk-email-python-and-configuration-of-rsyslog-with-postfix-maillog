@@ -53,7 +53,7 @@ This project contains a Python script for sending emails using SMTP. It supports
 
 Create a file `/etc/rsyslog.d/50-mysql.conf` with the following content:
 
-	```plaintext
+	```bash
 	action(type="ommysql" server="127.0.0.1" serverport="3306"
        db="Syslog" uid="your_db_username" pwd="your_db_password")
 	```
@@ -63,7 +63,6 @@ Create a file `/etc/rsyslog.d/50-mysql.conf` with the following content:
 Create a MySQL database and table to store the logs:
 
 	```bash
-	
 	CREATE DATABASE Syslog;
 	USE Syslog;
 	CREATE TABLE SystemEvents
