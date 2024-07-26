@@ -1,4 +1,4 @@
-# Bulk Email Sender and Configuration of rsyslog with Postfix logging
+# Bulk Email Sender and Configuration of rsyslog with Postfix Maillog
 
 This project contains a Python script for sending emails using SMTP. It supports sending emails to multiple recipients concurrently using threading. It also includes configuration of rsyslog with Postfix logging 
 
@@ -24,7 +24,8 @@ This project contains a Python script for sending emails using SMTP. It supports
      "from_email": "your_email@example.com",
      "subject": "Your Subject Here",
      "body": "Email body content here."
-   }```
+   }
+   ```
    
 2. Create a `recipients.txt` file in the project root with the list of email addresses (one per line):
 	
@@ -62,6 +63,7 @@ Create a file `/etc/rsyslog.d/50-mysql.conf` with the following content:
 Create a MySQL database and table to store the logs:
 
 	```bash
+	
 	CREATE DATABASE Syslog;
 	USE Syslog;
 	CREATE TABLE SystemEvents
@@ -91,6 +93,7 @@ Create a MySQL database and table to store the logs:
 		GenericFileName VarChar(60),
 		SystemID int NULL
 	);
+	
 	```
 	
 3. Restart rsyslog
