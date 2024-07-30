@@ -47,7 +47,7 @@ This project contains a Python script for sending emails using SMTP. It supports
 	
 ## rsyslog and Postfix Mail Log Configuration
 
-## Configuration Steps
+### Configuration Steps
 
 1. rsyslog Configuration
 
